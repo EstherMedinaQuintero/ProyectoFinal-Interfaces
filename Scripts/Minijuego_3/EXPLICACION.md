@@ -77,7 +77,7 @@ Este proyecto implementa un minijuego interactivo  "Teleport Parkour" donde el j
 - **`Alomancia.cs`**:
   - Implementa la atracción de metales y el empuje, dependiendo de los pesos del objeto y el jugador, tendría un efecto u otro
 - **`DestacarMetales.cs`**:
-  - Para sabe con qué se podía interactuar este script cambiaba el material de los objetos metálicos de un área
+  - Para saber con qué se podía interactuar este script cambiaba el material de los objetos metálicos de un área
 ---
 
 ## Flujo del juego <div id="flujo-del-juego"/>

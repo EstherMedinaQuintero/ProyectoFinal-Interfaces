@@ -3,109 +3,135 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class EnderPearlVR : MonoBehaviour {
-    public GameObject pearlPrefab; // Prefab de la pelota
-    public Transform handTransform; // Lugar donde aparecerá la pelota
-    public InputActionReference accionActivar;
-    public AudioClip spawnSound; // Sonido al aparecer la pelota
-    public AudioClip teleportSound; // Sonido al teletransportarse
-    public float spawnDuration = 0.5f;
-    public float soundVolume = 0.5f; // Volumen base del sonido
-    public float pitchVariation = 0.2f; // Variación del tono del sonido
-    public Material interactableMaterial; // Nuevo material cuando se pueda agarrar
-    public GameObject particleSystemPrefab; // Prefab del sistema de partículas
-    public GameObject arrivalParticleSystemPrefab; // Prefab del sistema de partículas de llegada
+/// Clase para gestionar la creación y teletransporte mediante una "Ender Pearl" en un entorno VR.
+/// Incluye efectos de animación, sonido y partículas.
+public class EnderPearlVR: MonoBehaviour {
+  /// Prefab de la Ender Pearl.
+  public GameObject pearlPrefab;
 
-    private GameObject currentPearl;
-    private GameObject currentParticleSystem;
-    private Vector3 originalScale = new Vector3(0.15147f, 0.15147f, 0.15147f);
+  /// Transform que indica la posición inicial donde aparecerá la Ender Pearl (mano del jugador).
+  public Transform handTransform;
 
-    void Awake() {
-        if (particleSystemPrefab != null) {
-            currentParticleSystem = Instantiate(particleSystemPrefab); // Instanciar el sistema de partículas
-            currentParticleSystem.SetActive(false); // Desactivarlo por defecto
-        }
+  /// Acción de entrada para activar la creación de la Ender Pearl.
+  public InputActionReference accionActivar;
 
-        if (accionActivar != null) {
-            accionActivar.action.Enable();
-            accionActivar.action.performed += ctx => SpawnPearl();
-        }
+  /// Sonido que se reproduce al crear la Ender Pearl.
+  public AudioClip spawnSound;
+
+  /// Sonido que se reproduce al teletransportarse.
+  public AudioClip teleportSound;
+
+  /// Duración de la animación de aparición de la Ender Pearl.
+  public float spawnDuration = 0.5f;
+
+  /// Volumen base de los sonidos.
+  public float soundVolume = 0.5f;
+
+  /// Variación aleatoria del tono (pitch) para los sonidos.
+  public float pitchVariation = 0.2f;
+
+  /// Material que se aplicará a la Ender Pearl cuando sea interactuable.
+  public Material interactableMaterial;
+
+  /// Prefab del sistema de partículas que se activa al aparecer la Ender Pearl.
+  public GameObject particleSystemPrefab;
+
+  /// Prefab del sistema de partículas que se activa al teletransportarse.
+  public GameObject arrivalParticleSystemPrefab;
+
+  private GameObject currentPearl;
+  private GameObject currentParticleSystem;
+
+  /// Escala inicial de la Ender Pearl.
+  private Vector3 originalScale = new Vector3(0.15147f, 0.15147f, 0.15147f);
+
+  /// Configuración inicial de la clase. Asigna la acción de entrada y prepara las partículas.
+  void Awake() {
+    if (particleSystemPrefab != null) {
+      currentParticleSystem = Instantiate(particleSystemPrefab);
+      currentParticleSystem.SetActive(false); /// Desactivar partículas por defecto
     }
 
-    void SpawnPearl() {
-        if (currentPearl == null && pearlPrefab != null) {
-            // Instanciar la perla
-            currentPearl = Instantiate(pearlPrefab, handTransform.position, handTransform.rotation);
-            Rigidbody rb = currentPearl.GetComponent<Rigidbody>();
-            XRGrabInteractable grabInteractable = currentPearl.GetComponent<XRGrabInteractable>();
+    if (accionActivar != null) {
+      accionActivar.action.Enable();
+      accionActivar.action.performed += ctx => SpawnPearl();
+    }
+  }
 
-            // Desactivar físicas y agarre antes de la animación
-            if (rb != null) rb.isKinematic = true;
-            if (grabInteractable != null) grabInteractable.enabled = false;
+  /// Método para crear la Ender Pearl. Inicia su animación y configuración.
+  void SpawnPearl() {
+    if (currentPearl == null && pearlPrefab != null) {
+      /// Instanciar la Ender Pearl
+      currentPearl = Instantiate(pearlPrefab, handTransform.position, handTransform.rotation);
 
-            currentPearl.transform.localScale = Vector3.zero;
-            StartCoroutine(AnimateSpawn(currentPearl));
+      /// Configuración inicial: desactivar físicas y agarre
+      Rigidbody rb = currentPearl.GetComponent<Rigidbody>();
+      XRGrabInteractable grabInteractable = currentPearl.GetComponent<XRGrabInteractable>();
+      if (rb != null) rb.isKinematic = true;
+      if (grabInteractable != null) grabInteractable.enabled = false;
 
-            // Reproducir sonido con variación aleatoria
-            PlayRandomizedSound();
+      /// Configurar tamaño inicial y reproducir animación
+      currentPearl.transform.localScale = Vector3.zero;
+      StartCoroutine(AnimateSpawn(currentPearl));
 
-            currentPearl.AddComponent<PearlTeleport>();
-            PearlTeleport pearlTeleport = currentPearl.GetComponent<PearlTeleport>();
-            pearlTeleport.teleportSound = teleportSound;
-            pearlTeleport.soundVolume = soundVolume;
-            pearlTeleport.pitchVariation = pitchVariation;
-            pearlTeleport.particleSystemPrefab = arrivalParticleSystemPrefab;
-        }
+      /// Reproducir sonido con tono aleatorio
+      PlayRandomizedSound();
+
+      /// Añadir comportamiento de teletransporte a la Ender Pearl
+      currentPearl.AddComponent<PearlTeleport>();
+      PearlTeleport pearlTeleport = currentPearl.GetComponent<PearlTeleport>();
+      pearlTeleport.teleportSound = teleportSound;
+      pearlTeleport.soundVolume = soundVolume;
+      pearlTeleport.pitchVariation = pitchVariation;
+      pearlTeleport.particleSystemPrefab = arrivalParticleSystemPrefab;
+    }
+  }
+
+  /// Reproduce el sonido de aparición con variaciones aleatorias de volumen y tono.
+  void PlayRandomizedSound() {
+    if (spawnSound != null) {
+      GameObject soundObject = new GameObject("TempAudio");
+      AudioSource audioSource = soundObject.AddComponent<AudioSource>();
+      audioSource.clip = spawnSound;
+      audioSource.volume = soundVolume * Random.Range(0.9f, 1.1f); /// Variar volumen
+      audioSource.pitch = 1.0f + Random.Range(-pitchVariation, pitchVariation); /// Variar tono
+      audioSource.Play();
+      Destroy(soundObject, spawnSound.length + 0.1f); /// Destruir después del sonido
+    }
+  }
+
+  /// Corrutina que anima la aparición de la Ender Pearl.
+  /// <param name="pearl"> El GameObject de la Ender Pearl. </param>
+  IEnumerator AnimateSpawn(GameObject pearl) {
+    /// Posicionar y activar las partículas
+    currentParticleSystem.transform.position = pearl.transform.position;
+    currentParticleSystem.SetActive(true);
+
+    float elapsedTime = 0f;
+
+    while (elapsedTime < spawnDuration) {
+      float t = elapsedTime / spawnDuration;
+      pearl.transform.localScale = Vector3.Lerp(Vector3.zero, originalScale, t);
+      elapsedTime += Time.deltaTime;
+      yield return null;
     }
 
-    void PlayRandomizedSound() {
-        if (spawnSound != null) {
-            GameObject soundObject = new GameObject("TempAudio");
-            AudioSource audioSource = soundObject.AddComponent<AudioSource>();
-            audioSource.clip = spawnSound;
-            
-            // Aplicar variación aleatoria al volumen y pitch
-            audioSource.volume = soundVolume * Random.Range(0.9f, 1.1f); // Variar volumen
-            audioSource.pitch = 1.0f + Random.Range(-pitchVariation, pitchVariation); // Variar tono
+    /// Asegurar el tamaño final correcto
+    pearl.transform.localScale = originalScale;
 
-            audioSource.Play();
-            Destroy(soundObject, spawnSound.length + 0.1f); // Destruir el objeto cuando termine el sonido
-        }
+    /// Activar físicas y agarre
+    Rigidbody rb = pearl.GetComponent<Rigidbody>();
+    XRGrabInteractable grabInteractable = pearl.GetComponent<XRGrabInteractable>();
+    if (rb != null) rb.isKinematic = false;
+    if (grabInteractable != null) grabInteractable.enabled = true;
+
+    /// Cambiar el material para indicar que es interactuable
+    if (interactableMaterial != null) {
+      Renderer renderer = pearl.GetComponent<Renderer>();
+      if (renderer != null) renderer.material = interactableMaterial;
     }
 
-    IEnumerator AnimateSpawn(GameObject pearl) {
-        // Posicionar el sistema de partículas en la posición de la perla
-        currentParticleSystem.transform.position = pearl.transform.position;
-        currentParticleSystem.SetActive(true); // Activar el sistema de partículas
-
-        float elapsedTime = 0f;
-
-        while (elapsedTime < spawnDuration) {
-            float t = elapsedTime / spawnDuration;
-            pearl.transform.localScale = Vector3.Lerp(Vector3.zero, originalScale, t);
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
-
-        // Asegurar tamaño final correcto
-        pearl.transform.localScale = originalScale;
-
-        // Activar físicas y agarre después de la animación
-        Rigidbody rb = pearl.GetComponent<Rigidbody>();
-        XRGrabInteractable grabInteractable = pearl.GetComponent<XRGrabInteractable>();
-
-        if (rb != null) rb.isKinematic = false;
-        if (grabInteractable != null) grabInteractable.enabled = true;
-
-        // Cambiar material cuando se pueda agarrar
-        if (interactableMaterial != null) {
-            Renderer renderer = pearl.GetComponent<Renderer>();
-            if (renderer != null) {
-                renderer.material = interactableMaterial;
-            }
-        }
-
-        // Desactivar las partículas después de la animación
-        currentParticleSystem.SetActive(false);
-    }
+    /// Desactivar partículas al terminar
+    currentParticleSystem.SetActive(false);
+  }
 }

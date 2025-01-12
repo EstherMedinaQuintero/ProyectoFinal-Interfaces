@@ -2,23 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TemporalCheckpointTeleporter : CheckpointTeleporter {
-    // Cuando el jugador entre en el área de teletransporte, se activa
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player") && teleportArea != null)
-        {
-            teleportArea.SetActive(true);
-        }
+/// Clase que extiende CheckpointTeleporter para gestionar un teletransporte temporal.
+/// La zona de teletransporte se activa al entrar en el área y se desactiva al salir.
+public class TemporalCheckpointTeleporter: CheckpointTeleporter {
+  /// Activa la zona de teletransporte cuando el jugador entra en el área del checkpoint.
+  /// <param name="other"> El collider que entra en el área del trigger. </param>
+  private void OnTriggerEnter(Collider other) {
+    /// Verifica si el objeto que entra tiene el tag "Player" y si teleportArea está configurado
+    if (other.CompareTag("Player") && teleportArea != null) {
+      teleportArea.SetActive(true); /// Activa la zona de teletransporte
     }
+  }
 
-    // Cuando el jugador sale del área de teletransporte, se desactiva
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player") && teleportArea != null)
-        {
-            teleportArea.SetActive(false);
-        }
+  /// Desactiva la zona de teletransporte cuando el jugador sale del área del checkpoint.
+  /// <param name="other"> El collider que sale del área del trigger. </param>
+  private void OnTriggerExit(Collider other) {
+    /// Verifica si el objeto que sale tiene el tag "Player" y si teleportArea está configurado
+    if (other.CompareTag("Player") && teleportArea != null) {
+      teleportArea.SetActive(false); /// Desactiva la zona de teletransporte
     }
+  }
 }
-

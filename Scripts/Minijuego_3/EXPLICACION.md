@@ -11,7 +11,7 @@ Este proyecto implementa un minijuego interactivo  "Teleport Parkour" donde el j
     - [Gestión del juego](#gestión-del-juego)
     - [Teletransportación](#teletransportación)
     - [Interactividad y tutorial](#interactividad-y-tutorial)
-    - [Interfaces](#interfaces)
+    - [Antigua jugabilidad](#antigua_jugabilidad)
 3. [Flujo del juego](#flujo-del-juego)
 4. [Cómo jugar](#cómo-jugar)
 
@@ -72,7 +72,12 @@ Este proyecto implementa un minijuego interactivo  "Teleport Parkour" donde el j
 - **`StartGame.cs`**:
   - Gestiona la secuencia inicial.
   - Explica al jugador cómo usar la teletransportación y progresar en el nivel.
-
+### 4. Antigua jugabilidad <div id="antigua_jugabilidad"/>
+ Anteriormente, la mecánica de este nivel era impulsarse con materiales metálicos y atraerlos (basado en los poderes de los libros de Mistborn). Con esta mecánica se iba a poder hacer el plataformeo. Se descartó esta mecánica porque podría causar mareo al impulsar al jugador
+- **`Alomancia.cs`**:
+  - Implementa la atracción de metales y el empuje, dependiendo de los pesos del objeto y el jugador, tendría un efecto u otro
+- **`DestacarMetales.cs`**:
+  - Para sabe con qué se podía interactuar este script cambiaba el material de los objetos metálicos de un área
 ---
 
 ## Flujo del juego <div id="flujo-del-juego"/>

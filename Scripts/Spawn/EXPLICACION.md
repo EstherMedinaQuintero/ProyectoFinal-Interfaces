@@ -1,4 +1,3 @@
-
 # Home de Juegos VR
 
 Este proyecto gestiona la transición entre escenas y la interacción con diferentes juegos en un entorno de realidad virtual. Además, rastrea el progreso del jugador, mostrando visualmente qué niveles han sido completados mediante figuras encima de los portales correspondientes.

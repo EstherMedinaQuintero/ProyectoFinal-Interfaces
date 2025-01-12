@@ -40,10 +40,18 @@ public class ManagerActivateaudio : MonoBehaviour
         {
             if (explicationOne == true)
             {
-                PlayAudio();
-                explicationOne = false;
+                // espera un segundo antes de reproducir el audio
+                StartCoroutine(WaitForAudio());
             }
         }
+    }
+
+    // espera un segundo antes de reproducir el audio
+    private IEnumerator WaitForAudio()
+    {
+        yield return new WaitForSeconds(2.0f);
+        PlayAudio();
+        explicationOne = false;
     }
     public void PlayAudio()
     {

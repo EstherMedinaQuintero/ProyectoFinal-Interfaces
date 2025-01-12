@@ -15,9 +15,12 @@ El juego consta de tres minijuegos principales:
    - Los objetos ofrecen pistas visuales y sonoras para facilitar su localización.
    - Un sistema de tutorial guía al jugador durante las fases iniciales.
 
-2. **Minijuego 2 - Caldero Mágico**:
-   - Combina ingredientes específicos (cristal, flor, runa) en un caldero para activar efectos mágicos.
-   - Al completar el desafío, el jugador desbloquea nuevas áreas.
+2. **Minijuego 2 - Camino Mágico**:
+   - Sigue un camino encantado mientras superas tres pruebas mágicas para avanzar.
+      - **Prueba 1**: Combina un cristal, una flor y una runa en una plataforma mágico para desbloquear la primera puerta.
+      - **Prueba 2**: Encuentra y coloca cuatro cristales en los pedestales correctos, iluminando el camino hacia la siguiente área.
+      - **Prueba 3**: Recorre un laberinto y encuentra el portal final que te llevará de regreso al inicio.
+   - El juego incluye instrucciones visuales y auditivas para guiar al jugador, aprovechando las capacidades inmersivas de la realidad virtual.
 
 3. **Minijuego 3 - Teletransporte y Checkpoints**:
    - Usa una perla mágica para teletransportarte a ubicaciones estratégicas mientras evitas peligros.
@@ -34,7 +37,7 @@ El repositorio se organiza en carpetas que reflejan los módulos principales del
 - **Multimedia**: Contiene recursos gráficos y sonoros utilizados en el juego.
 - **Scripts**: Incluye todo el código del proyecto, organizado en subcarpetas:
   - **Minijuego_1**: Scripts relacionados con el Prop Hunt.
-  - **Minijuego_2**: Scripts para la lógica del Caldero Mágico.
+  - **Minijuego_2**: Scripts para la lógica del Camino Mágico.
   - **Minijuego_3**: Scripts para teletransportes, checkpoints y desafíos asociados.
   - **Spawn**: Scripts generales para la transición entre escenas, portales y gestión de recompensas.
 

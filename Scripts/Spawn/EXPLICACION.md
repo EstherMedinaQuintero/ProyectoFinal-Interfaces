@@ -44,8 +44,11 @@ Este proyecto gestiona la transición entre escenas y la interacción con difere
 - **`PortalManager.cs`**  
   - Activa y desactiva los portales en función del progreso del jugador.  
 
-  - **`portalController.cs`**  
+- **`portalController.cs`**  
   - Controla la interacción con los portales, permitiendo al jugador acceder a los niveles. y enviando información a `ManagerTransition`. Para verificar si el jugador a completado el nivel.
+    
+- **`final.cs`**
+  - Activa el audio cuando se completan los tres niveles.
 
 
 ### 2. Interactividad y Tutorial <div id="interactividad-y-tutorial"/>

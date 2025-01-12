@@ -26,11 +26,20 @@ public class game1_audio : MonoBehaviour
             // Reproduce el audio solo si es la primera vez que se activa
             if (explicationOne == true)
             {
-                PlayAudio();
-                // Marca que la explicación ya ha sido reproducida
-                explicationOne = false;
+
+                // Espera un segundo antes de reproducir el audio
+                StartCoroutine(WaitForAudio());
             }
         }
+    }
+
+    // Método para esperar un segundo antes de reproducir el audio
+    private IEnumerator WaitForAudio()
+    {
+        yield return new WaitForSeconds(3.0f);
+        PlayAudio();
+        // Marca que la explicación ya ha sido reproducida
+        explicationOne = false;
     }
 
     // Método para reproducir el audio asociado al objeto

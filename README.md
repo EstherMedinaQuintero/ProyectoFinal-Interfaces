@@ -10,19 +10,16 @@ Este proyecto es un videojuego interactivo que integra múltiples mecánicas de 
 
 El juego consta de tres minijuegos principales:
 
-1. **Minijuego 1 - Prop Hunt**:
+1. **Minijuego 1 - Prop Hunt VRz**:
    - Encuentra y destruye objetos escondidos utilizando armas como pistolas y rifles.
    - Los objetos ofrecen pistas visuales y sonoras para facilitar su localización.
    - Un sistema de tutorial guía al jugador durante las fases iniciales.
 
-2. **Minijuego 2 - Camino Mágico**:
-   - Sigue un camino encantado mientras superas tres pruebas mágicas para avanzar.
-      - **Prueba 1**: Combina un cristal, una flor y una runa en una plataforma mágico para desbloquear la primera puerta.
-      - **Prueba 2**: Encuentra y coloca cuatro cristales en los pedestales correctos, iluminando el camino hacia la siguiente área.
-      - **Prueba 3**: Recorre un laberinto y encuentra el portal final que te llevará de regreso al inicio.
-   - El juego incluye instrucciones visuales y auditivas para guiar al jugador, aprovechando las capacidades inmersivas de la realidad virtual.
+2. **Minijuego 2 - Caldero Mágico**:
+   - Combina ingredientes específicos (cristal, flor, runa) en un caldero para activar efectos mágicos.
+   - Al completar el desafío, el jugador desbloquea nuevas áreas.
 
-3. **Minijuego 3 - Las Islas del Cielo**:
+3. **Minijuego 3 - Teletransporte y Checkpoints**:
    - Usa una perla mágica para teletransportarte a ubicaciones estratégicas mientras evitas peligros.
    - Los checkpoints permiten guardar el progreso y reaparecer en puntos seguros tras errores.
 
@@ -37,7 +34,7 @@ El repositorio se organiza en carpetas que reflejan los módulos principales del
 - **Multimedia**: Contiene recursos gráficos y sonoros utilizados en el juego.
 - **Scripts**: Incluye todo el código del proyecto, organizado en subcarpetas:
   - **Minijuego_1**: Scripts relacionados con el Prop Hunt.
-  - **Minijuego_2**: Scripts para la lógica del Camino Mágico.
+  - **Minijuego_2**: Scripts para la lógica del Caldero Mágico.
   - **Minijuego_3**: Scripts para teletransportes, checkpoints y desafíos asociados.
   - **Spawn**: Scripts generales para la transición entre escenas, portales y gestión de recompensas.
 
@@ -54,20 +51,14 @@ Cada subcarpeta incluye un archivo `EXPLICACION.md` que detalla el propósito de
 2. **Interacciones inmersivas**:
    - Integración de armas con efectos físicos y proyectiles realistas.
    - Teletransporte dinámico mediante elementos VR como la "Ender Pearl".
-   - Diálogos de Eva que guían al jugador durante su aventura.
 
 3. **Gestión de progresos**:
    - Implementación de un sistema de checkpoints y guardado de posiciones.
    - Activación dinámica de recompensas y portales según el progreso del jugador.
 
 4. **Feedback al jugador**:
-   - Tutoriales interactivos que facilitan la comprensión de las mecánicas del juego.
-   - Pistas sonoras y visuales para reforzar la interacción y guiar al jugador.
-   - Transiciones suaves entre escenas, con efectos de animación como fade in/fade out.
-5. **Uso de eventos**:
-   - Implementación de eventos para manejar las interacciones con los botones del mando.
-   - Activación de mensajes y notificaciones durante el juego.
-   - Desbloqueo de elementos y funciones en diferentes niveles según las acciones del jugador.
+   - Incorporación de tutoriales interactivos y pistas sonoras/visuales.
+   - Efectos de transición suaves entre escenas, incluyendo animaciones de fade in/out.
 
 ---
 

@@ -78,6 +78,7 @@ Cada subcarpeta incluye un archivo `EXPLICACION.md` que detalla el propósito de
 - **Tutoriales guiados**: Los mensajes visuales y los audios en tiempo real aseguran que los jugadores comprendan las mecánicas sin frustraciones.
 - **Efectos de audio y partículas**: Cada acción importante (como disparos o activación de portales) está acompañada de efectos que aumentan la inmersión.
 - **Checkpoints y guardado**: Los jugadores no pierden todo su progreso al fallar, minimizando la frustración.
+- **Entornos relajantes inspirados en la naturaleza**: Espacios diseñados con elementos naturales, como paisajes verdes y ambientes llenos de vegetación, ayudan a reducir la sobrecarga sensorial y promueven una sensación de calma y bienestar.
 
 ---
 

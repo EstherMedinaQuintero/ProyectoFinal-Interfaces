@@ -97,3 +97,6 @@ Cada subcarpeta incluye un archivo `EXPLICACION.md` que detalla el propósito de
    - La estructura del proyecto permite agregar nuevos minijuegos o funcionalidades sin alterar significativamente el código existente.
 
 ---
+## 7 Interacción Multimodal mediante Comandos de Voz
+
+El juego incorporará **comandos de voz** para activar portales, permitiendo una interacción más natural. Usando un micrófono, los jugadores podrán realizar esta acción sin necesidad de controles físicos. Esta integración de voz y Realidad Virtual mejora la inmersión y fluidez de la experiencia, haciendo el juego más accesible e intuitivo.

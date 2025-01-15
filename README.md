@@ -54,14 +54,20 @@ Cada subcarpeta incluye un archivo `EXPLICACION.md` que detalla el propósito de
 2. **Interacciones inmersivas**:
    - Integración de armas con efectos físicos y proyectiles realistas.
    - Teletransporte dinámico mediante elementos VR como la "Ender Pearl".
+   - Diálogos de Eva que guían al jugador durante su aventura.
 
 3. **Gestión de progresos**:
    - Implementación de un sistema de checkpoints y guardado de posiciones.
    - Activación dinámica de recompensas y portales según el progreso del jugador.
 
 4. **Feedback al jugador**:
-   - Incorporación de tutoriales interactivos y pistas sonoras/visuales.
-   - Efectos de transición suaves entre escenas, incluyendo animaciones de fade in/out.
+   - Tutoriales interactivos que facilitan la comprensión de las mecánicas del juego.
+   - Pistas sonoras y visuales para reforzar la interacción y guiar al jugador.
+   - Transiciones suaves entre escenas, con efectos de animación como fade in/fade out.
+5. **Uso de eventos**:
+   - Implementación de eventos para manejar las interacciones con los botones del mando.
+   - Activación de mensajes y notificaciones durante el juego.
+   - Desbloqueo de elementos y funciones en diferentes niveles según las acciones del jugador.
 
 ---
 

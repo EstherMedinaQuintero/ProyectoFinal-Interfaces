@@ -10,7 +10,7 @@ Este proyecto es un videojuego interactivo que integra múltiples mecánicas de 
 
 El juego consta de tres minijuegos principales:
 
-1. **Minijuego 1 - Prop Hunt VRz**:
+1. **Minijuego 1 - Prop Hunt**:
    - Encuentra y destruye objetos escondidos utilizando armas como pistolas y rifles.
    - Los objetos ofrecen pistas visuales y sonoras para facilitar su localización.
    - Un sistema de tutorial guía al jugador durante las fases iniciales.

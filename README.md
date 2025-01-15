@@ -18,11 +18,15 @@
 
 Este proyecto es un videojuego interactivo que integra múltiples mecánicas de juego divididas en tres minijuegos principales, con elementos de transición, efectos visuales y un diseño enfocado en la experiencia del usuario. Cada minijuego propone un reto único, incentivando la exploración, la resolución de problemas y el uso de habilidades del jugador.
 
+![PropHunt](./Multimedia/Spawn.gif)
+
 ## 2. Explicación del juego <div id="2-Explicación-del-juego"/>
 
 El juego consta de tres minijuegos principales:
 
 ### Minijuego 1 - Prop Hunt <div id="Minijuego-1---Prop-Hunt"/>
+
+![PropHunt](./Multimedia/PropHunt.gif)
 
 - Encuentra y destruye objetos escondidos utilizando armas como pistolas y rifles.
 - Los objetos ofrecen pistas visuales y sonoras para facilitar su localización.
@@ -30,10 +34,16 @@ El juego consta de tres minijuegos principales:
 
 ### Minijuego 2 - Caldero Mágico <div id="Minijuego-2---Caldero-Mágico"/>
 
+![PropHunt](./Multimedia/Caldero.gif)
+![PropHunt](./Multimedia/MoverPiedras.gif)
+![PropHunt](./Multimedia/Laberinto.gif)
+
 - Combina ingredientes específicos (cristal, flor, runa) en un caldero para activar efectos mágicos.
 - Al completar el desafío, el jugador desbloquea nuevas áreas.
 
 ### Minijuego 3 - Teletransporte y Checkpoints <div id="Minijuego-3---Teletransporte-y-Checkpoints"/>
+
+![PropHunt](./Multimedia/Perlas.gif)
 
 - Usa una perla mágica para teletransportarte a ubicaciones estratégicas mientras evitas peligros.
 - Los checkpoints permiten guardar el progreso y reaparecer en puntos seguros tras errores.

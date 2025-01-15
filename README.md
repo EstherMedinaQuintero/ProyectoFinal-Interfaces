@@ -10,7 +10,7 @@ Este proyecto es un videojuego interactivo que integra múltiples mecánicas de 
 
 El juego consta de tres minijuegos principales:
 
-1. **Minijuego 1 - Prop Hunt VR**:
+1. **Minijuego 1 - Prop Hunt**:
    - Encuentra y destruye objetos escondidos utilizando armas como pistolas y rifles.
    - Los objetos ofrecen pistas visuales y sonoras para facilitar su localización.
    - Un sistema de tutorial guía al jugador durante las fases iniciales.
@@ -22,7 +22,7 @@ El juego consta de tres minijuegos principales:
       - **Prueba 3**: Recorre un laberinto y encuentra el portal final que te llevará de regreso al inicio.
    - El juego incluye instrucciones visuales y auditivas para guiar al jugador, aprovechando las capacidades inmersivas de la realidad virtual.
 
-3. **Minijuego 3 - Las islas del Cielo**:
+3. **Minijuego 3 - Las Islas del Cielo**:
    - Usa una perla mágica para teletransportarte a ubicaciones estratégicas mientras evitas peligros.
    - Los checkpoints permiten guardar el progreso y reaparecer en puntos seguros tras errores.
 

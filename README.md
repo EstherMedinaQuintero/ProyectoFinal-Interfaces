@@ -22,7 +22,7 @@ El juego consta de tres minijuegos principales:
       - **Prueba 3**: Recorre un laberinto y encuentra el portal final que te llevará de regreso al inicio.
    - El juego incluye instrucciones visuales y auditivas para guiar al jugador, aprovechando las capacidades inmersivas de la realidad virtual.
 
-3. **Minijuego 3 - Teletransporte y Checkpoints**:
+3. **Minijuego 3 - Las islas del Cielo**:
    - Usa una perla mágica para teletransportarte a ubicaciones estratégicas mientras evitas peligros.
    - Los checkpoints permiten guardar el progreso y reaparecer en puntos seguros tras errores.
 

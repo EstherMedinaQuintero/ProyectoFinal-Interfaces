@@ -67,11 +67,13 @@ Cada subcarpeta incluye un archivo `EXPLICACION.md` que detalla el propósito de
 
 1. **Diseño modular**:
    - Los scripts están organizados para ser reutilizables y fáciles de extender.
-   - Uso de patrones como el Singleton para la gestión centralizada de transiciones.
+   - Uso de patrones como el Singleton para la gestión centralizada de transiciones y Observer para las acciones
+   - Uso del Input System de Unity
 
 2. **Interacciones inmersivas**:
    - Integración de armas con efectos físicos y proyectiles realistas.
    - Teletransporte dinámico mediante elementos VR como la "Ender Pearl".
+   - El juego tiene en cuenta la altura del usuario para que se sienta cómodo
 
 3. **Gestión de progresos**:
    - Implementación de un sistema de checkpoints y guardado de posiciones.
